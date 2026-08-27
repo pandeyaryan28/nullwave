@@ -1,0 +1,93 @@
+Nullwave — Pitch Deck Draft
+
+Tagline: Building the Future of Voice
+
+Core Thesis: The future of voice interaction is not possible without privacy.
+
+Slide 1: Title & Vision
+
+Title: NULLWAVE
+
+Subtitle: Building the Future of Voice
+
+Tagline: Private, seamless voice interactions anywhere, anytime.
+
+Slide 2: Mission & Vision
+
+Vision Statement: "Building the future of voice. The future of voice is not possible without privacy."
+
+Core Mission: Empowering professionals, travelers, and gamers to communicate freely, take confidential calls, and use voice-first AI interfaces anywhere in public without sacrificing privacy or disturbing others.
+
+Slide 3: The Problem
+
+Lack of Privacy on Calls & Meetings: Conducting confidential calls in high-density or shared environments (open offices, co-working spaces, cafes, public transport) leaves sensitive speech exposed to eavesdropping.
+
+Noise Disturbance to Surrounding People: Speaking aloud in quiet or public environments creates acoustic friction and annoys people nearby.
+
+Barriers to Voice-First AI Interfaces: As voice becomes the primary interaction model for AI, public adoption is hindered by privacy concerns and ambient noise.
+
+Slide 4: The Solution
+
+Voice Containment Mask: A wearable voice containment device that traps and absorbs speech sound waves inside the mask.
+
+Complete Acoustic Isolation: Withholds speech from escaping the mask, allowing natural conversation without sound leakage or outward noise disturbance.
+
+Slide 5: Product & Industrial Design
+
+A Fashion Statement: Designed to look like premium, high-tech wearable fashion rather than weird or intimidating tactical equipment.
+
+Unmatched Comfort & Safety: Ergonomically designed so that it is genuinely more comfortable and safer to keep wearing than to take off.
+
+Personalized Style: Customizable colors, trims, and modular exterior components to seamlessly complement any outfit.
+
+Slide 6: Key Features & Capabilities
+
+Acoustic Voice Containment: Advanced sound absorption keeping spoken audio completely private within the mask.
+
+Soundless Bladeless Cooling System: Whisper-quiet micro-bladeless fan technology delivering smooth, continuous airflow and thermal comfort without blade flicker noise or mic turbulence.
+
+Real-Time Live Translation: Seamless bidirectional translation (and vice versa) delivered directly to your ears.
+
+AI Meeting Notes & Transcription: Continuous automated note-taking, summaries, and transcriptions for daily calls and conversations.
+
+Aromatherapy Capsule System: Customizable scent capsules offering fresh, personalized internal mask scenting.
+
+Slide 7: Market Opportunity (TAM / SAM / SOM)
+
+TAM (Total Addressable Market) — ₹4.72 Lakh Cr ($57B): 350M global hybrid knowledge workers, international travelers, and voice-active gamers facing privacy/noise constraints.
+
+SAM (Serviceable Addressable Market) — ₹24,975 Cr ($3.0B): 18.5M users across India's top metro hubs (business pros), frequent outbound/inbound tourists, and urban competitive gamers.
+
+SOM (Serviceable Obtainable Market / Yr-3 Goal) — ₹270 Cr ($32.5M): 200,000 active users (~1.08% SAM capture) driven by enterprise co-working partnerships, airport duty-free retail, and gaming creator drops.
+
+Slide 8: Go-To-Market (GTM) Strategy
+
+Target Persona — Business Professionals & Consultants: Remote workers, traveling executives, and consultants who frequently take confidential client calls on the move.
+
+Geographic Wedge — Metro Tech Hubs: Concentrated initial launch across India's key business centers:
+
+Bengaluru (Tech & Founders)
+
+Mumbai (Finance & Corporate)
+
+Delhi NCR (Consulting & Policy)
+
+Secondary Market — Travelers & Gamers:
+
+Travelers & Tourists: Outbound/inbound travelers needing real-time translation and quiet transit calling in airports and trains.
+
+Competitive Gamers & Streamers: Late-night multiplayer gamers in shared apartments who need voice noise containment without ambient room bleed.
+
+Slide 9: Business Model & Monetization
+
+Hardware Revenue:
+
+Device retail price: ₹15,000 (~$180 USD) per unit.
+
+Recurring Software Subscription (SaaS):
+
+Tiered subscription for premium AI features (Real-time translation, automated meeting transcription, summary insights).
+
+Consumables Revenue:
+
+Recurring sales of customizable scented capsules for internal mask scent management.

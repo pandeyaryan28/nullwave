@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /waitlist/{entry} {
+      // Allow public write/creation with validation
+      allow create: if request.resource.data.email is string
+                    && request.resource.data.name is string;
+      // Disallow public read/update/delete for privacy
+      allow read, update, delete: if false;
+    }
+  }
+}
