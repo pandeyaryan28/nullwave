@@ -19,6 +19,10 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       touchMultiplier: 1.5,
     });
 
+    if (typeof window !== "undefined") {
+      (window as any).__lenis = lenis;
+    }
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -27,6 +31,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     requestAnimationFrame(raf);
 
     return () => {
+      if (typeof window !== "undefined") {
+        (window as any).__lenis = null;
+      }
       lenis.destroy();
     };
   }, []);

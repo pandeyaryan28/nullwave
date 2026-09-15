@@ -7,6 +7,7 @@
   --foreground: #f4f4f6;
   --nw-gold: #c5a880;
   --nw-gold-light: #e3caa5;
+  --nw-gold-dark: #9d7d54;
 }
 
 * {
@@ -59,18 +60,27 @@ body {
 .tech-grid {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
-/* Metallic Edge Glow */
+.tech-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Metallic Edge Glow & Glassmorphism */
 .metallic-border {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 }
 
 .gold-glow {
-  box-shadow: 0 0 24px -4px rgba(197, 168, 128, 0.25);
+  box-shadow: 0 0 32px -4px rgba(197, 168, 128, 0.25);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 20px -2px rgba(197, 168, 128, 0.2), inset 0 0 12px -2px rgba(197, 168, 128, 0.1);
 }
 
 /* Hardware Dial Styling */
@@ -83,4 +93,73 @@ body {
 canvas, video {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee:hover, .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Acoustic Wave Pulses */
+@keyframes acousticPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+}
+
+.animate-acoustic {
+  animation: acousticPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Radar scan */
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radarSweep 6s linear infinite;
 }
