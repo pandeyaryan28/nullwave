@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
-import AwwwardsCursor from "@/components/AwwwardsCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nullwave.io"),
@@ -46,8 +45,6 @@ export default function RootLayout({
         {/* Subtle Ambient Grain Layer */}
         <div className="fixed inset-0 pointer-events-none z-30 grain-overlay opacity-30" />
         
-        <AwwwardsCursor />
-
         <SmoothScroll>
           <Navbar />
           <main className="flex-1 w-full relative z-10">{children}</main>

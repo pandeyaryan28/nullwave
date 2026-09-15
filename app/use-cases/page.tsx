@@ -2,22 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Plane,
-  Train,
-  Coffee,
-  Building2,
-  Gamepad2,
-  ArrowRight,
-  Check,
-  ShieldCheck,
-  Mic,
-  Volume2,
-  Sparkles,
-} from "lucide-react";
-import SpotlightCard from "@/components/SpotlightCard";
-import AcousticSimulator from "@/components/AcousticSimulator";
-import MarqueeTicker from "@/components/MarqueeTicker";
+import { Plane, Train, Coffee, Building2, Gamepad2, ArrowRight, Check } from "lucide-react";
 
 export default function UseCasesPage() {
   const [selectedCase, setSelectedCase] = useState(0);
@@ -26,86 +11,66 @@ export default function UseCasesPage() {
     {
       id: "cafe",
       title: "Cafés & Coffee Shops",
-      subtitle: "Mobile Work & Client Calls",
+      subtitle: "Work from Anywhere",
       icon: Coffee,
-      ambientNoise: "72 dB (Espresso & Chatter)",
-      containedNoise: "21 dB (Whisper Silent)",
-      persona: "Remote Consultants & Founders",
       description:
-        "Busy third-wave coffee shops are inspiring places to work, but taking private client calls or team standups is fraught with friction. With NullWave, your voice never escapes into the café, and noisy blenders or adjacent table chatter are completely filtered out of your microphone.",
+        "Busy coffee shops are great places to work, but taking private calls is tricky with people sitting close by. NullWave keeps your conversations private so you can take important work calls without stepping outside.",
       benefits: [
-        "Take sensitive investor calls and client demos with complete peace of mind",
-        "Coffee machine steam and café music are rejected by the beamforming mics",
-        "No need to pack up your laptop and flee into the street for every incoming ring",
-        "Bystanders sitting 1 foot away hear zero decipherable words",
+        "Take sensitive business calls with complete peace of mind",
+        "Coffee machine and blender noise won't get picked up by your mic",
+        "No need to pack up your laptop to step outside for a quick call",
       ],
     },
     {
       id: "airport",
-      title: "Airports & Travel Lounges",
-      subtitle: "International Transit Sanctuary",
+      title: "Airports & Travel",
+      subtitle: "On the Move",
       icon: Plane,
-      ambientNoise: "78 dB (Gate Paging & Jet Engines)",
-      containedNoise: "23 dB (Zero Leakage)",
-      persona: "Traveling Executives & Nomads",
       description:
-        "Whether you are waiting at a crowded departure gate or sitting in a packed airline lounge, NullWave lets you coordinate travel plans and conduct confidential negotiations without broadcasting your itinerary or company secrets to fellow travelers.",
+        "Whether you are waiting at a busy departure gate or sitting in a transit lounge, NullWave lets you coordinate travel plans and join meetings without broadcasting your details to fellow passengers.",
       benefits: [
-        "Bidirectional real-time translation makes ordering and transit in foreign languages effortless",
-        "Maintain absolute privacy while reviewing legal terms or quarterly earnings",
-        "Medical-grade silicone seal remains soft and irritation-free across multi-leg flights",
-        "Aromatherapy eucalyptus pod keeps breathing crisp and hydrated in dry cabin air",
+        "Take calls comfortably in crowded gate areas and airline lounges",
+        "Use real-time translation to speak foreign languages smoothly",
+        "Soft silicone ear loops stay secure and comfortable while walking",
       ],
     },
     {
       id: "train",
-      title: "High-Speed Rail & Public Transit",
-      subtitle: "Silent Commuter Etiquette",
+      title: "Trains & Public Commutes",
+      subtitle: "Quiet Transit",
       icon: Train,
-      ambientNoise: "68 dB (Track Rumble & Wind)",
-      containedNoise: "20 dB (Imperceptible)",
-      persona: "Daily Urban Commuters",
       description:
-        "Talking aloud on quiet commuter trains or buses is a universal social taboo. NullWave absorbs your vocal sound waves at source, allowing you to catch up on voice notes, meetings, and AI dictation at your natural volume without irritating anyone nearby.",
+        "Speaking aloud on quiet commuter trains or buses can disturb people around you. NullWave traps your voice so you can talk at your normal volume without annoying anyone nearby.",
       benefits: [
-        "Speak at your natural conversational cadence without having to strain or whisper",
-        "Zero sound leakage to passengers sitting directly shoulder-to-shoulder with you",
-        "Transform transit downtime into productive speech dictation sessions",
-        "Quick physical mute button right on the side of the chassis",
+        "Speak at a natural volume without raising your voice",
+        "Zero sound leakage to passengers sitting right next to you",
+        "Catch up on voice notes and calls during your daily commute",
       ],
     },
     {
       id: "office",
-      title: "Open-Plan Offices & Coworking",
-      subtitle: "Desk-Side Acoustic Phone Booth",
+      title: "Open Offices & Coworking",
+      subtitle: "Desk-Side Privacy",
       icon: Building2,
-      ambientNoise: "58 dB (Keyboard Clatter & Ambient Murmur)",
-      containedNoise: "21 dB (Zero Distraction)",
-      persona: "Software Engineers & Account Execs",
       description:
-        "Phone booths and private meeting pods are almost always occupied when you need them. With NullWave, your desk becomes an instant acoustic sanctuary. Take spontaneous 1-on-1 calls, customer interviews, and voice memos right from your seat.",
+        "Meeting rooms and phone booths are often occupied when you need them. With NullWave, you can jump onto quick one-on-one calls and client demos right from your open desk.",
       benefits: [
-        "Eliminate the 15-minute search for an empty phone booth in your office",
-        "Respect your colleagues' deep focus by stopping desk chatter before it travels",
-        "Crisp 24-bit studio audio for Zoom, Teams, and Google Meet",
-        "Bladeless cooling prevents face humidity during back-to-back 4-hour meeting blocks",
+        "Instant privacy without needing to book a phone booth",
+        "Keep your colleagues focused by eliminating desk chatter",
+        "Quick physical mute button right on the side of the mask",
       ],
     },
     {
       id: "gaming",
-      title: "Late-Night Gaming & Discord Comms",
-      subtitle: "Midnight Vocal Freedom",
+      title: "Late-Night Gaming & Voice Comms",
+      subtitle: "Night-Time Freedom",
       icon: Gamepad2,
-      ambientNoise: "32 dB (Quiet Night Room)",
-      containedNoise: "20 dB (Sleep Safe)",
-      persona: "Competitive Gamers & Streamers",
       description:
-        "Intense multiplayer gaming calls for rapid, high-energy callouts and celebratory cheers. In shared apartments or family homes, late-night voice comms easily wake others. NullWave lets you play with full passion without disturbing a soul sleeping in the next room.",
+        "Playing multiplayer games or talking to friends late at night can easily wake up your family or roommates. NullWave lets you talk freely without disturbing anyone sleeping in the next room.",
       benefits: [
-        "Deliver clear, high-energy team callouts on Discord at 2:00 AM",
-        "Zero family or roommate complaints about late-night voice noise",
-        "Ultra-low-latency Bluetooth 5.4 connection with zero audible lag",
-        "Sub-14 dBA airflow prevents facial sweating during intense competitive matches",
+        "Talk with full energy without keeping the house awake",
+        "Quiet airflow keeps your face cool during long gaming sessions",
+        "Clear voice pickup for crisp Discord and team communication",
       ],
     },
   ];
@@ -113,33 +78,27 @@ export default function UseCasesPage() {
   const current = useCases[selectedCase];
 
   return (
-    <div className="w-full bg-nw-pitch text-foreground pt-32 pb-32">
+    <div className="w-full bg-nw-pitch text-foreground pt-28 pb-32">
       {/* 1. Header */}
       <section className="px-6 sm:px-8 max-w-6xl mx-auto mb-16">
-        <div className="max-w-3xl space-y-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-nw-gold" />
-            <span className="text-nw-gold font-mono text-xs uppercase tracking-widest">
-              Deployment Contexts // Real-World Scenarios
-            </span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-medium text-white tracking-tight leading-[1.08]">
-            Your Voice. <br />
-            <span className="text-zinc-500 font-light">Every Environment.</span>
+        <div className="max-w-2xl">
+          <span className="text-nw-gold font-mono text-xs uppercase tracking-wider block mb-3">
+            Real-Life Use Cases
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-sans font-medium text-white tracking-tight leading-tight mb-6">
+            Privacy wherever <br />
+            <span className="text-zinc-500 font-light">you need to speak.</span>
           </h1>
           <p className="text-zinc-400 text-base sm:text-lg font-light leading-relaxed">
-            From crowded transit hubs to late-night gaming rooms, discover how NullWave redefines personal communication across modern life.
+            From crowded cafes to quiet trains, see how NullWave fits into your daily routine.
           </p>
         </div>
       </section>
 
-      {/* 2. Ticker */}
-      <MarqueeTicker />
-
-      {/* 3. Interactive Scenario Switcher */}
-      <section className="py-24 px-6 sm:px-8 max-w-6xl mx-auto space-y-8">
-        {/* Scenario Buttons */}
-        <div className="flex flex-wrap gap-2.5 pb-2">
+      {/* 2. Interactive Scenario Switcher */}
+      <section className="px-6 sm:px-8 max-w-6xl mx-auto mb-20">
+        {/* Pills */}
+        <div className="flex flex-wrap gap-2.5 mb-8 border-b border-white/[0.06] pb-6">
           {useCases.map((item, index) => {
             const Icon = item.icon;
             const isSelected = selectedCase === index;
@@ -147,116 +106,69 @@ export default function UseCasesPage() {
               <button
                 key={item.id}
                 onClick={() => setSelectedCase(index)}
-                className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl text-xs font-mono tracking-wider transition-all ${
+                className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium tracking-wide transition-all ${
                   isSelected
-                    ? "bg-nw-gold text-nw-pitch font-semibold shadow-[0_0_20px_rgba(197,168,128,0.3)] scale-105"
-                    : "bg-nw-card/70 text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/15"
+                    ? "bg-nw-gold text-nw-pitch font-semibold shadow-md"
+                    : "bg-nw-card text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/15"
                 }`}
               >
-                <Icon size={15} />
+                <Icon size={14} />
                 <span>{item.title}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Selected Scenario Detailed Card */}
-        <SpotlightCard className="p-8 sm:p-12 border border-white/[0.1] bg-nw-card/80">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2 text-nw-gold font-mono text-xs uppercase tracking-widest">
-                <current.icon size={16} />
-                <span>{current.subtitle}</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-4xl font-sans font-medium text-white tracking-tight leading-tight">
-                {current.title}
-              </h2>
-
-              <p className="text-zinc-300 text-sm sm:text-base font-light leading-relaxed">
-                {current.description}
-              </p>
-
-              <div className="pt-2 space-y-3">
-                <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
-                  Key Operational Advantages:
-                </div>
-                <div className="space-y-2.5">
-                  {current.benefits.map((benefit, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 font-light"
-                    >
-                      <Check size={16} className="text-nw-gold shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Selected Scenario Card */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-nw-card border border-white/[0.08]">
+          <div className="max-w-3xl space-y-6">
+            <div className="flex items-center gap-2 text-nw-gold font-mono text-xs uppercase tracking-wider">
+              <current.icon size={16} />
+              <span>{current.subtitle}</span>
             </div>
 
-            {/* Right Telemetry & Persona Widget */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="p-6 rounded-2xl bg-nw-pitch/90 border border-white/[0.08] space-y-4 font-mono text-xs">
-                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 text-zinc-500 uppercase text-[10px]">
-                  <span>Acoustic Profile</span>
-                  <span className="text-nw-gold">Empirical Test</span>
-                </div>
+            <h2 className="text-2xl sm:text-4xl font-sans font-medium text-white tracking-tight">
+              {current.title}
+            </h2>
 
-                <div>
-                  <span className="text-zinc-500 text-[10px] uppercase block mb-0.5">
-                    Target Persona
-                  </span>
-                  <span className="text-white font-sans text-sm font-medium">
-                    {current.persona}
-                  </span>
-                </div>
+            <p className="text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
+              {current.description}
+            </p>
 
-                <div>
-                  <span className="text-zinc-500 text-[10px] uppercase block mb-0.5">
-                    Ambient Noise Level
-                  </span>
-                  <span className="text-amber-400 font-bold">{current.ambientNoise}</span>
-                </div>
-
-                <div>
-                  <span className="text-zinc-500 text-[10px] uppercase block mb-0.5">
-                    NullWave Escape Volume
-                  </span>
-                  <span className="text-emerald-400 font-bold">{current.containedNoise}</span>
-                </div>
-
-                <div className="pt-2 border-t border-white/[0.06] text-[10px] text-zinc-500">
-                  <span>RESULT: 100% SPEECH INAUDIBLE AT 1 METER</span>
-                </div>
+            <div className="pt-4 space-y-3">
+              <div className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                Why it helps:
+              </div>
+              <div className="space-y-2.5">
+                {current.benefits.map((benefit, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-sm text-zinc-300 font-light">
+                    <Check size={16} className="text-nw-gold shrink-0" />
+                    <span>{benefit}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
       </section>
 
-      {/* 4. Live Acoustic Simulator Test Bench */}
-      <section className="py-24 px-6 sm:px-8 max-w-6xl mx-auto border-t border-white/[0.06]">
-        <AcousticSimulator />
-      </section>
-
-      {/* 5. Bottom Reservation CTA */}
-      <section className="px-6 sm:px-8 max-w-4xl mx-auto text-center">
-        <SpotlightCard className="p-8 sm:p-14 border border-nw-gold/30 space-y-6">
-          <h3 className="text-2xl sm:text-4xl font-sans font-medium text-white tracking-tight">
-            Ready for Effortless Voice Privacy?
+      {/* 3. Bottom CTA */}
+      <section className="px-6 sm:px-8 max-w-3xl mx-auto text-center">
+        <div className="p-8 sm:p-12 rounded-3xl bg-nw-dark border border-white/[0.08] space-y-6">
+          <h3 className="text-2xl sm:text-3xl font-sans font-medium text-white tracking-tight">
+            Ready to talk freely in public?
           </h3>
           <p className="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed max-w-md mx-auto">
-            Join the waitlist to secure priority allocation in Batch 01.
+            Join the waitlist to receive priority access to the first batch of NullWave.
           </p>
           <Link
             href="/waitlist"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-nw-gold text-nw-pitch font-semibold text-xs uppercase tracking-wider hover:bg-nw-gold-light transition-all shadow-[0_0_25px_rgba(197,168,128,0.3)]"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-nw-gold text-nw-pitch font-semibold text-xs uppercase tracking-wider hover:bg-nw-gold-light transition-all"
           >
             <span>Join the Waitlist</span>
             <ArrowRight size={14} />
           </Link>
-        </SpotlightCard>
+        </div>
       </section>
     </div>
   );

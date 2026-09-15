@@ -31,10 +31,10 @@ export async function POST(request: Request) {
     // Generate unique reservation ID
     const ticketId = `NW-${Math.floor(1000 + Math.random() * 9000)}`;
 
-    // 2. Save to Firestore with timeout protection
+    // 2. Save to Firestore
     try {
       const waitlistRef = collection(db, "waitlist");
-      const writePromise = addDoc(waitlistRef, {
+      await addDoc(waitlistRef, {
         name: cleanName,
         email: cleanEmail,
         useCase: cleanUseCase,
@@ -42,13 +42,9 @@ export async function POST(request: Request) {
         ticketId,
         createdAt: serverTimestamp(),
       });
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Firestore write timeout")), 2500)
-      );
-      await Promise.race([writePromise, timeoutPromise]);
     } catch (firestoreErr) {
       console.warn("Firestore write logged:", firestoreErr);
-      // Even if offline or timeout, return ticketId successfully
+      // Even if offline or permissions propagate, return ticketId
     }
 
     return NextResponse.json(
