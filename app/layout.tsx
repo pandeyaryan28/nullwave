@@ -40,8 +40,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="min-h-screen bg-nw-pitch text-foreground antialiased selection:bg-nw-gold selection:text-nw-pitch relative flex flex-col font-sans">
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* Anti-flash script to instantly apply user-chosen theme from localStorage */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('nw-theme');
+                  if (saved === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-nw-gold selection:text-nw-pitch relative flex flex-col font-sans transition-colors">
         {/* Subtle Ambient Grain Layer */}
         <div className="fixed inset-0 pointer-events-none z-30 grain-overlay opacity-30" />
         

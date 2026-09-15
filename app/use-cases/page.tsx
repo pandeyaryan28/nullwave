@@ -11,66 +11,66 @@ export default function UseCasesPage() {
     {
       id: "cafe",
       title: "Cafés & Coffee Shops",
-      subtitle: "Work from Anywhere",
+      subtitle: "Mobile Workspaces",
       icon: Coffee,
       description:
-        "Busy coffee shops are great places to work, but taking private calls is tricky with people sitting close by. NullWave keeps your conversations private so you can take important work calls without stepping outside.",
+        "Busy coffee shops are great places to work, but taking confidential calls is stressful when strangers sit 3 feet away. NullWave absorbs your speech at the mouth so you can participate in high-stakes meetings without leaving your seat.",
       benefits: [
         "Take sensitive business calls with complete peace of mind",
-        "Coffee machine and blender noise won't get picked up by your mic",
-        "No need to pack up your laptop to step outside for a quick call",
+        "Coffee grinder, espresso steam, and cafe background chatter are blocked from your mic",
+        "No need to pack up your laptop to step outside into traffic for a quick sync",
       ],
     },
     {
       id: "airport",
-      title: "Airports & Travel",
-      subtitle: "On the Move",
+      title: "Airports & International Travel",
+      subtitle: "High-Density Transit",
       icon: Plane,
       description:
-        "Whether you are waiting at a busy departure gate or sitting in a transit lounge, NullWave lets you coordinate travel plans and join meetings without broadcasting your details to fellow passengers.",
+        "Whether you are waiting at a crowded departure gate or sitting in a transit lounge, NullWave lets you coordinate logistics and join executive briefings without broadcasting your itinerary or corporate data to fellow passengers.",
       benefits: [
         "Take calls comfortably in crowded gate areas and airline lounges",
-        "Use real-time translation to speak foreign languages smoothly",
-        "Soft silicone ear loops stay secure and comfortable while walking",
+        "Use on-device real-time neural translation to speak foreign languages smoothly",
+        "Hypoallergenic liquid silicone ear loops stay secure and comfortable while walking",
       ],
     },
     {
       id: "train",
-      title: "Trains & Public Commutes",
-      subtitle: "Quiet Transit",
+      title: "Trains & Daily Commutes",
+      subtitle: "Quiet Transit Cars",
       icon: Train,
       description:
-        "Speaking aloud on quiet commuter trains or buses can disturb people around you. NullWave traps your voice so you can talk at your normal volume without annoying anyone nearby.",
+        "Speaking aloud on quiet commuter trains or transit coaches causes acoustic friction and irritates fellow commuters. NullWave traps your voice so you can talk at your normal volume without leaking sound to adjacent seats.",
       benefits: [
-        "Speak at a natural volume without raising your voice",
-        "Zero sound leakage to passengers sitting right next to you",
-        "Catch up on voice notes and calls during your daily commute",
+        "Speak at a natural conversational volume without raising or muffling your voice",
+        "Zero sound leakage to passengers sitting directly beside or behind you",
+        "Catch up on voice notes, voice AI workflows, and calls during your daily commute",
       ],
     },
     {
       id: "office",
       title: "Open Offices & Coworking",
-      subtitle: "Desk-Side Privacy",
+      subtitle: "Desk-Side Voice Privacy",
       icon: Building2,
       description:
-        "Meeting rooms and phone booths are often occupied when you need them. With NullWave, you can jump onto quick one-on-one calls and client demos right from your open desk.",
+        "Meeting rooms and phone booths are constantly booked when you need them urgently. With NullWave, you can jump onto impromptu client demos and 1-on-1 team standups directly from your open desk.",
       benefits: [
-        "Instant privacy without needing to book a phone booth",
-        "Keep your colleagues focused by eliminating desk chatter",
-        "Quick physical mute button right on the side of the mask",
+        "Instant acoustic privacy without needing to reserve a soundproof phone booth",
+        "Keep your team focused by eliminating ambient desk chatter from the room",
+        "Quick physical mute button right on the side of the chassis",
       ],
     },
     {
       id: "gaming",
-      title: "Late-Night Gaming & Voice Comms",
-      subtitle: "Night-Time Freedom",
+      title: "Late-Night Gaming & Discord",
+      subtitle: "Night-Time Voice Comms",
       icon: Gamepad2,
       description:
-        "Playing multiplayer games or talking to friends late at night can easily wake up your family or roommates. NullWave lets you talk freely without disturbing anyone sleeping in the next room.",
+        "Playing multiplayer games or strategizing with friends late at night easily wakes up family members or roommates. NullWave lets you communicate with full energy and natural excitement without sound leaking into neighboring bedrooms.",
       benefits: [
-        "Talk with full energy without keeping the house awake",
-        "Quiet airflow keeps your face cool during long gaming sessions",
-        "Clear voice pickup for crisp Discord and team communication",
+        "Communicate with full vocal energy without keeping the household awake",
+        "Continuous bladeless airflow keeps your face cool during intense gaming sessions",
+        "Studio MEMS pickup delivers crisp, low-latency Discord and team communication",
       ],
     },
   ];
@@ -78,27 +78,26 @@ export default function UseCasesPage() {
   const current = useCases[selectedCase];
 
   return (
-    <div className="w-full bg-nw-pitch text-foreground pt-28 pb-32">
+    <div className="w-full bg-background dark:bg-nw-pitch text-foreground pt-28 pb-32 transition-colors">
       {/* 1. Header */}
       <section className="px-6 sm:px-8 max-w-6xl mx-auto mb-16">
         <div className="max-w-2xl">
-          <span className="text-nw-gold font-mono text-xs uppercase tracking-wider block mb-3">
-            Real-Life Use Cases
+          <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block mb-3">
+            Real-World Deployments
           </span>
-          <h1 className="text-4xl sm:text-6xl font-sans font-medium text-white tracking-tight leading-tight mb-6">
+          <h1 className="text-4xl sm:text-6xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight leading-tight mb-6">
             Privacy wherever <br />
-            <span className="text-zinc-500 font-light">you need to speak.</span>
+            <span className="text-zinc-500 dark:text-zinc-400 font-light">you need to speak.</span>
           </h1>
-          <p className="text-zinc-400 text-base sm:text-lg font-light leading-relaxed">
-            From crowded cafes to quiet trains, see how NullWave fits into your daily routine.
+          <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
+            From crowded cafes to quiet trains, see how NullWave eliminates acoustic friction from your daily voice interactions.
           </p>
         </div>
       </section>
 
-      {/* 2. Interactive Scenario Switcher */}
+      {/* 2. Interactive Scenario Switcher (Clean Rectangular Tabs) */}
       <section className="px-6 sm:px-8 max-w-6xl mx-auto mb-20">
-        {/* Pills */}
-        <div className="flex flex-wrap gap-2.5 mb-8 border-b border-white/[0.06] pb-6">
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-zinc-200 dark:border-white/[0.06] pb-6">
           {useCases.map((item, index) => {
             const Icon = item.icon;
             const isSelected = selectedCase === index;
@@ -106,10 +105,10 @@ export default function UseCasesPage() {
               <button
                 key={item.id}
                 onClick={() => setSelectedCase(index)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium tracking-wide transition-all ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-mono uppercase tracking-wide transition-all ${
                   isSelected
                     ? "bg-nw-gold text-nw-pitch font-semibold shadow-md"
-                    : "bg-nw-card text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/15"
+                    : "bg-white dark:bg-nw-card text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06] hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-white/15 shadow-xs"
                 }`}
               >
                 <Icon size={14} />
@@ -120,29 +119,29 @@ export default function UseCasesPage() {
         </div>
 
         {/* Selected Scenario Card */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-nw-card border border-white/[0.08]">
+        <div className="p-8 sm:p-12 rounded-2xl bg-white dark:bg-nw-card border border-zinc-200 dark:border-white/[0.08] shadow-sm dark:shadow-2xl">
           <div className="max-w-3xl space-y-6">
-            <div className="flex items-center gap-2 text-nw-gold font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-wider font-medium">
               <current.icon size={16} />
               <span>{current.subtitle}</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-sans font-medium text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight">
               {current.title}
             </h2>
 
-            <p className="text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
+            <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
               {current.description}
             </p>
 
             <div className="pt-4 space-y-3">
-              <div className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-                Why it helps:
+              <div className="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 font-medium">
+                Key Operational Advantages:
               </div>
               <div className="space-y-2.5">
                 {current.benefits.map((benefit, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-zinc-300 font-light">
-                    <Check size={16} className="text-nw-gold shrink-0" />
+                  <div key={idx} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300 font-light">
+                    <Check size={16} className="text-nw-gold-dark dark:text-nw-gold shrink-0" />
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -154,18 +153,18 @@ export default function UseCasesPage() {
 
       {/* 3. Bottom CTA */}
       <section className="px-6 sm:px-8 max-w-3xl mx-auto text-center">
-        <div className="p-8 sm:p-12 rounded-3xl bg-nw-dark border border-white/[0.08] space-y-6">
-          <h3 className="text-2xl sm:text-3xl font-sans font-medium text-white tracking-tight">
-            Ready to talk freely in public?
+        <div className="p-8 sm:p-12 rounded-2xl bg-white dark:bg-nw-card border border-zinc-200 dark:border-white/[0.08] space-y-6 shadow-sm dark:shadow-2xl">
+          <h3 className="text-2xl sm:text-3xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight">
+            Ready to speak freely in public?
           </h3>
-          <p className="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed max-w-md mx-auto">
-            Join the waitlist to receive priority access to the first batch of NullWave.
+          <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed max-w-md mx-auto">
+            Join the waitlist to receive priority access to the first production batch of NullWave.
           </p>
           <Link
             href="/waitlist"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-nw-gold text-nw-pitch font-semibold text-xs uppercase tracking-wider hover:bg-nw-gold-light transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md bg-nw-gold text-nw-pitch font-semibold text-xs font-mono uppercase tracking-wider hover:bg-nw-gold-light transition-colors shadow-md"
           >
-            <span>Join the Waitlist</span>
+            <span>Join Priority Waitlist</span>
             <ArrowRight size={14} />
           </Link>
         </div>

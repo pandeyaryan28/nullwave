@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -56,16 +57,11 @@ const config: Config = {
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "wave-pulse": "wavePulse 2s ease-in-out infinite",
-        "led-glow": "ledGlow 3s ease-in-out infinite",
       },
       keyframes: {
         wavePulse: {
           "0%, 100%": { transform: "scaleY(0.3)", opacity: "0.4" },
           "50%": { transform: "scaleY(1)", opacity: "1" },
-        },
-        ledGlow: {
-          "0%, 100%": { opacity: "0.85", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.8))" },
-          "50%": { opacity: "1", filter: "drop-shadow(0 0 16px rgba(255,255,255,1))" },
         },
       },
     },
