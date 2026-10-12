@@ -11,6 +11,8 @@ import {
   User,
   Mail,
 } from "lucide-react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 interface WaitlistData {
   name: string;
@@ -73,37 +75,53 @@ export default function WaitlistForm() {
 
     setStatus("loading");
 
+    const assignedTicket = `NW-${Math.floor(1000 + Math.random() * 9000)}`;
+
     try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      // Direct Firestore creation
+      const waitlistRef = collection(db, "waitlist");
+      await addDoc(waitlistRef, {
+        name: formData.name.trim(),
+        email: cleanEmail,
+        useCase: (formData.useCase || "Work & Business Calls").trim(),
+        note: (formData.note || "").trim(),
+        ticketId: assignedTicket,
+        createdAt: serverTimestamp(),
       });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to join waitlist. Please try again.");
-      }
-
-      const assignedTicket = data.ticketId || `NW-${Math.floor(1000 + Math.random() * 9000)}`;
       setTicketNumber(assignedTicket);
-
-      // Save locally
       localStorage.setItem(
         `nw_sub_${cleanEmail}`,
         JSON.stringify({ ...formData, ticketId: assignedTicket, timestamp: Date.now() })
       );
-
       setStatus("success");
     } catch (err: any) {
-      console.error("Waitlist error:", err);
-      // Fallback ticket generation if network offline
-      const fallbackTicket = `NW-${Math.floor(1000 + Math.random() * 9000)}`;
-      setTicketNumber(fallbackTicket);
+      console.warn("Direct Firestore error, checking API fallback:", err);
+      try {
+        const res = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const finalTicket = data.ticketId || assignedTicket;
+          setTicketNumber(finalTicket);
+          localStorage.setItem(
+            `nw_sub_${cleanEmail}`,
+            JSON.stringify({ ...formData, ticketId: finalTicket, timestamp: Date.now() })
+          );
+          setStatus("success");
+          return;
+        }
+      } catch (fallbackErr) {
+        console.warn("API fallback error:", fallbackErr);
+      }
+
+      // Offline / permission graceful fallback
+      setTicketNumber(assignedTicket);
       localStorage.setItem(
         `nw_sub_${cleanEmail}`,
-        JSON.stringify({ ...formData, ticketId: fallbackTicket, timestamp: Date.now() })
+        JSON.stringify({ ...formData, ticketId: assignedTicket, timestamp: Date.now() })
       );
       setStatus("success");
     }
