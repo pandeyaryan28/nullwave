@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroScrollVideo from "@/components/HeroScrollVideo";
-import AcousticSimulator from "@/components/AcousticSimulator";
-import HardwareBlueprint from "@/components/HardwareBlueprint";
 import AcousticBenchmarks from "@/components/AcousticBenchmarks";
 import ScentCustomizer from "@/components/ScentCustomizer";
 import {
@@ -75,10 +73,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Interactive Acoustic Isolation Simulator */}
-      <AcousticSimulator />
-
-      {/* 4. The Solution: Wearable Acoustic Isolation */}
+      {/* 3. The Solution: Wearable Acoustic Isolation */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] bg-zinc-50/70 dark:bg-nw-dark/40 transition-colors">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -153,10 +148,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Interactive Hardware Blueprint & Architecture */}
-      <HardwareBlueprint />
-
-      {/* 6. Product Showcase & Engineering Pillars */}
+      {/* 4. Product Showcase & Engineering Pillars */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
@@ -231,13 +223,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Acoustic Benchmarks Matrix */}
+      {/* 5. Acoustic Benchmarks Matrix */}
       <AcousticBenchmarks />
 
-      {/* 8. Botanical Aromatherapy Customizer */}
+      {/* 6. Botanical Aromatherapy Customizer */}
       <ScentCustomizer />
 
-      {/* 9. Everyday Scenarios Preview */}
+      {/* 7. Everyday Scenarios Preview */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] bg-zinc-50/70 dark:bg-nw-dark/40 transition-colors">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -294,7 +286,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. Priority Waitlist CTA */}
+      {/* 8. Priority Waitlist CTA */}
       <section className="py-28 sm:py-36 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block">
