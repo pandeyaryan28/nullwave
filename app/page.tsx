@@ -10,7 +10,6 @@ import {
   Mic,
   VolumeX,
   Battery,
-  Globe,
   Coffee,
   Plane,
   Train,
@@ -20,7 +19,7 @@ import {
 export default function HomePage() {
   return (
     <div className="w-full bg-background dark:bg-nw-pitch text-foreground transition-colors">
-      {/* 1. Cinematic Scroll Video Hero with Calibrated Pacing & Direct Drag Scrub */}
+      {/* 1. Cinematic Scroll Video Hero */}
       <HeroScrollVideo />
 
       {/* 2. The Problem */}
@@ -28,14 +27,14 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block mb-3">
-              The Acoustic Dilemma
+              The Reality
             </span>
             <h2 className="text-3xl sm:text-5xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight leading-tight mb-6">
-              Speaking out loud in public <br />
-              <span className="text-zinc-500 dark:text-zinc-400 font-light">is full of friction.</span>
+              Speaking in public <br />
+              <span className="text-zinc-500 dark:text-zinc-400 font-light">is awkward and distracting.</span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg font-light leading-relaxed">
-              Whether taking a confidential client call, dictating notes to voice AI, or speaking on a crowded commuter train, you face two immediate problems:
+              Whether taking an urgent client call, dictating notes to voice AI, or speaking on a quiet train, you run into two immediate problems:
             </p>
           </div>
 
@@ -45,13 +44,13 @@ export default function HomePage() {
                 <VolumeX size={18} />
               </div>
               <h3 className="text-xl font-sans font-medium text-zinc-900 dark:text-white">
-                Zero Speech Privacy
+                No Speech Privacy
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-sm font-light leading-relaxed">
-                Strangers sitting right beside you overhear every detail of your business calls, confidential company metrics, and personal conversations.
+                People sitting next to you overhear confidential work details, personal thoughts, and client metrics.
               </p>
               <div className="pt-2 font-mono text-xs text-zinc-500">
-                Average Speech Bleed Radius: 4.5 – 6.0 Meters
+                Typical speech bleed: 4.5 to 6 meters
               </div>
             </div>
 
@@ -60,13 +59,13 @@ export default function HomePage() {
                 <Mic size={18} />
               </div>
               <h3 className="text-xl font-sans font-medium text-zinc-900 dark:text-white">
-                Acoustic Disturbance to Others
+                Disturbing People Nearby
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-sm font-light leading-relaxed">
-                Speaking aloud in quiet train cars, airport departure lounges, and shared co-working desks distracts and annoys the people around you.
+                Speaking aloud on quiet trains, airport departure gates, and shared desks annoys and distracts people around you.
               </p>
               <div className="pt-2 font-mono text-xs text-zinc-500">
-                Acoustic Disturbance Threshold: &gt; 65 dB SPL
+                Conversational speech level: ~65 dB
               </div>
             </div>
           </div>
@@ -81,7 +80,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 relative aspect-[4/5] rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/[0.08] shadow-md dark:shadow-2xl">
               <Image
                 src="/images/mask-lifestyle.png"
-                alt="Person wearing NullWave mask in a modern metropolitan environment"
+                alt="Person wearing NullWave mask in a modern city setting"
                 fill
                 className="object-cover"
               />
@@ -97,7 +96,7 @@ export default function HomePage() {
                 <span className="text-zinc-500 dark:text-zinc-400 font-light">for your voice.</span>
               </h2>
               <p className="text-zinc-600 dark:text-zinc-300 text-base font-light leading-relaxed">
-                NullWave traps your voice sound waves at the source. You speak naturally at normal conversational volume, but your acoustic energy never escapes into the public space.
+                NullWave traps your voice sound waves at the source. Talk naturally at your normal volume without sound escaping into the public space.
               </p>
 
               <div className="space-y-4 pt-2">
@@ -107,10 +106,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="text-zinc-900 dark:text-white font-medium text-sm mb-1">
-                      Complete Voice Containment
+                      Complete Voice Privacy
                     </h4>
                     <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                      Micro-cellular acoustic dampening traps voice waves before sound can escape into public spaces.
+                      Soft internal acoustic foam absorbs your speech before sound can leak out into the room.
                     </p>
                   </div>
                 </div>
@@ -121,10 +120,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="text-zinc-900 dark:text-white font-medium text-sm mb-1">
-                      Studio-Quality Speech Pickup
+                      Studio-Quality Voice Pickup
                     </h4>
                     <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                      Internal beamforming MEMS microphones pick up your speech with crystalline clarity while rejecting ambient street chatter.
+                      Microphones positioned right at your lips catch your speech clearly while locking out cafe chatter.
                     </p>
                   </div>
                 </div>
@@ -135,10 +134,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="text-zinc-900 dark:text-white font-medium text-sm mb-1">
-                      Continuous Bladeless Fresh Air
+                      Continuous Fresh Airflow
                     </h4>
                     <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                      Smooth, silent airflow circulation eliminates stuffiness and heat without producing mic buffeting or motor noise.
+                      Silent bladeless air circulation prevents heat and stuffiness with zero motor noise or mic buffeting.
                     </p>
                   </div>
                 </div>
@@ -148,15 +147,70 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Product Showcase & Engineering Pillars */}
+      {/* 4. Minimalist Key Specs Ribbon (Breaks Visual Cadence) */}
+      <section className="py-14 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] bg-white dark:bg-nw-pitch transition-colors">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="p-5 rounded-xl bg-zinc-50 dark:bg-nw-card border border-zinc-200/80 dark:border-white/[0.06] space-y-1">
+              <span className="font-mono text-2xl sm:text-3xl font-medium text-zinc-900 dark:text-white tracking-tight">
+                -38 dB
+              </span>
+              <div className="text-xs font-mono uppercase tracking-wider text-nw-gold-dark dark:text-nw-gold font-medium">
+                Sound Containment
+              </div>
+              <p className="text-xs text-zinc-500 font-light">
+                Voice stays inside. People nearby hear nothing.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-zinc-50 dark:bg-nw-card border border-zinc-200/80 dark:border-white/[0.06] space-y-1">
+              <span className="font-mono text-2xl sm:text-3xl font-medium text-zinc-900 dark:text-white tracking-tight">
+                88 grams
+              </span>
+              <div className="text-xs font-mono uppercase tracking-wider text-nw-gold-dark dark:text-nw-gold font-medium">
+                Ultra-Light Design
+              </div>
+              <p className="text-xs text-zinc-500 font-light">
+                Soft medical silicone for hours of zero-pressure wear.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-zinc-50 dark:bg-nw-card border border-zinc-200/80 dark:border-white/[0.06] space-y-1">
+              <span className="font-mono text-2xl sm:text-3xl font-medium text-zinc-900 dark:text-white tracking-tight">
+                18 Hours
+              </span>
+              <div className="text-xs font-mono uppercase tracking-wider text-nw-gold-dark dark:text-nw-gold font-medium">
+                All-Day Battery
+              </div>
+              <p className="text-xs text-zinc-500 font-light">
+                USB-C fast charge. 15 minutes gives 5 hours.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-zinc-50 dark:bg-nw-card border border-zinc-200/80 dark:border-white/[0.06] space-y-1">
+              <span className="font-mono text-2xl sm:text-3xl font-medium text-zinc-900 dark:text-white tracking-tight">
+                &lt; 14 dB
+              </span>
+              <div className="text-xs font-mono uppercase tracking-wider text-nw-gold-dark dark:text-nw-gold font-medium">
+                Silent Airflow
+              </div>
+              <p className="text-xs text-zinc-500 font-light">
+                Continuous fresh air without fan noise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Product Showcase & Capabilities */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block mb-2">
-              Capabilities
+              Everyday Wear
             </span>
             <h2 className="text-3xl sm:text-5xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight">
-              Designed for effortless daily wear.
+              Designed for everyday comfort.
             </h2>
           </div>
 
@@ -164,7 +218,7 @@ export default function HomePage() {
           <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-nw-card border border-zinc-200 dark:border-white/[0.08] flex items-center justify-center p-8 mb-12 shadow-sm dark:shadow-2xl">
             <Image
               src="/images/mask-studio.png"
-              alt="NullWave Hardware Studio Angle"
+              alt="NullWave Hardware Studio Profile"
               fill
               className="object-contain p-6"
             />
@@ -180,19 +234,19 @@ export default function HomePage() {
                 Silent Airflow
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                Bladeless micro-impeller provides smooth fresh air circulation with less than 14 dB acoustic floor.
+                Bladeless micro-impeller circulates fresh air quietly with less than 14 dB sound.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-nw-card border border-zinc-200 dark:border-white/[0.06] space-y-3 shadow-sm dark:shadow-xl">
               <div className="w-8 h-8 rounded-md bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/10 flex items-center justify-center text-nw-gold-dark dark:text-nw-gold">
-                <Globe size={16} />
+                <Mic size={16} />
               </div>
               <h3 className="text-base font-sans font-medium text-zinc-900 dark:text-white">
-                Live Translation
+                Lip-Level Clarity
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                On-device neural translation engine allows seamless international communication without cellular lag.
+                Close microphones pick up your voice with crystal clarity while blocking environmental noise.
               </p>
             </div>
 
@@ -201,10 +255,10 @@ export default function HomePage() {
                 <ShieldCheck size={16} />
               </div>
               <h3 className="text-base font-sans font-medium text-zinc-900 dark:text-white">
-                Medical-Grade Silicone
+                Soft Silicone Seal
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                Hypoallergenic liquid silicone contour conforms gently to facial contours with zero skin pressure.
+                Medical liquid silicone conforms naturally to your facial structure without skin redness.
               </p>
             </div>
 
@@ -216,36 +270,36 @@ export default function HomePage() {
                 18-Hour Battery
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
-                High-density lithium cell with USB-C fast charging providing 5 hours of continuous speech in 15 minutes.
+                High-density battery with USB-C quick charge gives 5 hours of talk time in 15 minutes.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Acoustic Benchmarks Matrix */}
+      {/* 6. Acoustic Benchmarks Matrix */}
       <AcousticBenchmarks />
 
-      {/* 6. Botanical Aromatherapy Customizer */}
+      {/* 7. Botanical Aromatherapy Customizer */}
       <ScentCustomizer />
 
-      {/* 7. Everyday Scenarios Preview */}
+      {/* 8. Everyday Scenarios Preview */}
       <section className="py-24 sm:py-32 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] bg-zinc-50/70 dark:bg-nw-dark/40 transition-colors">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
               <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block mb-2">
-                Public Deployments
+                Everyday Situations
               </span>
               <h2 className="text-3xl sm:text-5xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight">
-                Everyday Scenarios.
+                Built for real life.
               </h2>
             </div>
             <Link
               href="/use-cases"
               className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
             >
-              <span>Explore All Scenarios</span>
+              <span>View All Scenarios</span>
               <ArrowRight size={12} />
             </Link>
           </div>
@@ -255,7 +309,7 @@ export default function HomePage() {
               <Coffee size={20} className="text-nw-gold-dark dark:text-nw-gold" />
               <h4 className="text-base font-medium text-zinc-900 dark:text-white">Crowded Cafés</h4>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs font-light leading-relaxed">
-                Take confidential investor calls and team standups without leaving your table.
+                Take urgent calls and team standups without leaving your table or whispering.
               </p>
             </div>
 
@@ -263,7 +317,7 @@ export default function HomePage() {
               <Plane size={20} className="text-nw-gold-dark dark:text-nw-gold" />
               <h4 className="text-base font-medium text-zinc-900 dark:text-white">Airport Departure Gates</h4>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs font-light leading-relaxed">
-                Talk privately at crowded transit lounges without broadcasting details to nearby passengers.
+                Converse in busy transit lounges without sharing details with passengers next to you.
               </p>
             </div>
 
@@ -271,7 +325,7 @@ export default function HomePage() {
               <Train size={20} className="text-nw-gold-dark dark:text-nw-gold" />
               <h4 className="text-base font-medium text-zinc-900 dark:text-white">Commuter Rail & Transit</h4>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs font-light leading-relaxed">
-                Speak at normal volume on quiet trains without disturbing surrounding commuters.
+                Speak at normal volume on quiet trains without disturbing passengers around you.
               </p>
             </div>
 
@@ -279,14 +333,14 @@ export default function HomePage() {
               <Building2 size={20} className="text-nw-gold-dark dark:text-nw-gold" />
               <h4 className="text-base font-medium text-zinc-900 dark:text-white">Open Coworking Desks</h4>
               <p className="text-zinc-600 dark:text-zinc-400 text-xs font-light leading-relaxed">
-                Jump straight onto client calls at your desk without hunting for an available phone booth.
+                Jump straight onto client calls at your desk without hunting for a free phone booth.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. Priority Waitlist CTA */}
+      {/* 9. Priority Waitlist CTA */}
       <section className="py-28 sm:py-36 px-6 sm:px-8 border-t border-zinc-200 dark:border-white/[0.06] text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <span className="text-nw-gold-dark dark:text-nw-gold font-mono text-xs uppercase tracking-widest block">
@@ -296,7 +350,7 @@ export default function HomePage() {
             Be the first to experience NullWave.
           </h2>
           <p className="text-zinc-600 dark:text-zinc-300 text-sm sm:text-base font-light leading-relaxed max-w-lg mx-auto">
-            Join the waitlist to receive priority access to our first production batch, complimentary travel pouch, and 3 botanical scent pods.
+            Join the waitlist to receive priority access to our first production batch, travel pouch, and botanical scent pods.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

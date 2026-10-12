@@ -25,7 +25,7 @@ export default function WaitlistForm() {
   const [formData, setFormData] = useState<WaitlistData>({
     name: "",
     email: "",
-    useCase: "Work & Business Calls",
+    useCase: "Work & Client Calls",
     note: "",
   });
 
@@ -33,11 +33,13 @@ export default function WaitlistForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [ticketNumber, setTicketNumber] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const [preferredSize, setPreferredSize] = useState<"Small" | "Medium" | "Large">("Medium");
+  const [preferredScent, setPreferredScent] = useState<string>("Japanese Hinoki Cedar");
 
   const useCases = [
-    "Work & Business Calls",
-    "Travel & Public Commutes",
-    "Late-Night Gaming",
+    "Work & Client Calls",
+    "Commuting & Travel",
+    "Open Offices & Cafes",
     "Talking to Voice AI",
   ];
 
@@ -68,7 +70,7 @@ export default function WaitlistForm() {
     // Check duplicate in local storage cache
     const existing = localStorage.getItem(`nw_sub_${cleanEmail}`);
     if (existing) {
-      setErrorMessage("This email is already on the waitlist.");
+      setErrorMessage("This email is already registered on the waitlist.");
       setStatus("error");
       return;
     }
@@ -78,12 +80,12 @@ export default function WaitlistForm() {
     const assignedTicket = `NW-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
-      // Direct Firestore creation
+      // Direct Firestore write
       const waitlistRef = collection(db, "waitlist");
       await addDoc(waitlistRef, {
         name: formData.name.trim(),
         email: cleanEmail,
-        useCase: (formData.useCase || "Work & Business Calls").trim(),
+        useCase: (formData.useCase || "Work & Client Calls").trim(),
         note: (formData.note || "").trim(),
         ticketId: assignedTicket,
         createdAt: serverTimestamp(),
@@ -95,7 +97,7 @@ export default function WaitlistForm() {
       );
       setStatus("success");
     } catch (err: any) {
-      console.warn("Direct Firestore error, checking API fallback:", err);
+      console.warn("Direct Firestore write fallback:", err);
       try {
         const res = await fetch("/api/waitlist", {
           method: "POST",
@@ -117,7 +119,7 @@ export default function WaitlistForm() {
         console.warn("API fallback error:", fallbackErr);
       }
 
-      // Offline / permission graceful fallback
+      // Offline fallback
       setTicketNumber(assignedTicket);
       localStorage.setItem(
         `nw_sub_${cleanEmail}`,
@@ -128,7 +130,7 @@ export default function WaitlistForm() {
   };
 
   const copyShareLink = () => {
-    navigator.clipboard.writeText(`https://nullwave.io/waitlist?ref=${ticketNumber}`);
+    navigator.clipboard.writeText(`https://nullwave.in/waitlist?ref=${ticketNumber}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -139,10 +141,10 @@ export default function WaitlistForm() {
         {status === "success" ? (
           <motion.div
             key="success-card"
-            initial={{ opacity: 0, scale: 0.96, y: 15 }}
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.25 }}
             className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-nw-card border border-zinc-200 dark:border-white/[0.08] text-center space-y-6 shadow-sm dark:shadow-2xl"
           >
             <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20">
@@ -151,17 +153,17 @@ export default function WaitlistForm() {
 
             <div>
               <span className="font-mono text-xs text-nw-gold-dark dark:text-nw-gold uppercase tracking-wider block mb-1 font-medium">
-                Waitlist Confirmed
+                Batch 01 Allocation Confirmed
               </span>
               <h3 className="text-2xl sm:text-3xl font-sans font-medium text-zinc-900 dark:text-white tracking-tight">
                 You&apos;re on the priority list.
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 text-sm font-light leading-relaxed max-w-sm mx-auto mt-2">
-                Thank you for joining, <span className="text-zinc-950 dark:text-white font-medium">{formData.name}</span>. We will email you at <span className="text-zinc-800 dark:text-zinc-300 font-medium">{formData.email}</span> as soon as batch allocation begins.
+                Thank you, <span className="text-zinc-950 dark:text-white font-medium">{formData.name}</span>. We will email you at <span className="text-zinc-800 dark:text-zinc-300 font-medium">{formData.email}</span> as soon as your batch is ready.
               </p>
             </div>
 
-            {/* Reservation Pass */}
+            {/* Ticket Card */}
             <div className="p-5 rounded-xl bg-zinc-50 dark:bg-nw-pitch border border-zinc-200 dark:border-white/[0.06] text-left text-xs font-mono space-y-3">
               <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/[0.06] pb-2">
                 <span className="text-zinc-500 uppercase">Reservation ID</span>
@@ -173,8 +175,34 @@ export default function WaitlistForm() {
                   <span className="text-zinc-950 dark:text-white font-sans font-medium">{formData.name}</span>
                 </div>
                 <div>
-                  <span className="text-zinc-500 block text-[10px]">Primary Scenario</span>
+                  <span className="text-zinc-500 block text-[10px]">Primary Use</span>
                   <span className="text-zinc-800 dark:text-zinc-300 font-sans">{formData.useCase}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Optional Early Preferences */}
+            <div className="p-4 rounded-xl bg-zinc-50/80 dark:bg-white/[0.02] border border-zinc-200/80 dark:border-white/[0.05] text-left space-y-3">
+              <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
+                Optional: Sizing & Scent Preference
+              </div>
+
+              <div>
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 block mb-1.5 font-light">Facial Contour Size</span>
+                <div className="flex gap-2">
+                  {(["Small", "Medium", "Large"] as const).map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setPreferredSize(size)}
+                      className={`flex-1 py-1.5 rounded-md text-xs font-mono border transition-all ${
+                        preferredSize === size
+                          ? "bg-zinc-900 text-white dark:bg-nw-gold dark:text-nw-pitch border-zinc-900 dark:border-nw-gold font-medium"
+                          : "bg-white dark:bg-nw-card text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-white/10 hover:border-zinc-300"
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -185,7 +213,7 @@ export default function WaitlistForm() {
                 className="w-full sm:w-auto px-6 py-3 rounded-md bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.08] dark:hover:bg-white/[0.14] text-zinc-900 dark:text-white text-xs font-mono uppercase tracking-wide flex items-center justify-center gap-2 border border-zinc-200 dark:border-white/10 transition-colors shadow-xs"
               >
                 {copied ? <Check size={14} className="text-emerald-500 dark:text-emerald-400" /> : <Copy size={14} />}
-                <span>{copied ? "Link Copied" : "Copy Reservation Link"}</span>
+                <span>{copied ? "Link Copied" : "Copy Your Invite Link"}</span>
               </button>
 
               <button
@@ -224,7 +252,7 @@ export default function WaitlistForm() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="e.g. Sarah Connor"
+                  placeholder="e.g. Alex Chen"
                   className="w-full pl-11 pr-4 py-3 rounded-md bg-zinc-50 dark:bg-nw-pitch border border-zinc-200 dark:border-white/[0.08] focus:border-nw-gold focus:outline-none text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 transition-colors"
                 />
               </div>
@@ -242,7 +270,7 @@ export default function WaitlistForm() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="sarah@example.com"
+                  placeholder="alex@company.com"
                   className="w-full pl-11 pr-4 py-3 rounded-md bg-zinc-50 dark:bg-nw-pitch border border-zinc-200 dark:border-white/[0.08] focus:border-nw-gold focus:outline-none text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 transition-colors"
                 />
               </div>
@@ -251,7 +279,7 @@ export default function WaitlistForm() {
             {/* Use Case */}
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
-                Where will you use NullWave most?
+                Primary Situation
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {useCases.map((item) => (
@@ -274,13 +302,13 @@ export default function WaitlistForm() {
             {/* Note */}
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
-                Where do you need privacy most? <span className="text-zinc-400 dark:text-zinc-600 font-normal">(Optional)</span>
+                Where is speech privacy most important to you? <span className="text-zinc-400 dark:text-zinc-600 font-normal">(Optional)</span>
               </label>
               <textarea
                 rows={2}
                 value={formData.note}
                 onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                placeholder="e.g. On noisy commuter trains, busy coffee shops, open office..."
+                placeholder="e.g. On quiet morning commuter trains, noisy cafes, shared desks..."
                 className="w-full p-3 rounded-md bg-zinc-50 dark:bg-nw-pitch border border-zinc-200 dark:border-white/[0.08] focus:border-nw-gold focus:outline-none text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 resize-none transition-colors"
               />
             </div>
@@ -302,7 +330,7 @@ export default function WaitlistForm() {
             </button>
 
             <p className="text-[11px] font-mono text-zinc-500 text-center">
-              Zero spam. Priority early access reserved for verified submissions.
+              No spam. We will only contact you when your allocation is ready.
             </p>
           </form>
         )}
